@@ -1,0 +1,17 @@
+#!/usr/bin/env node
+
+'use strict';
+var program = require('commander');
+var fs = require('fs');
+var path = require('path');
+var _ = require('underscore');
+
+//** require all command *.js files
+var files = fs.readdirSync(path.join(__dirname,'..','command'));
+_.each(files, function(file){
+	if(/\.js$/.test(file)) require('../command/' + file);
+});
+
+program
+	.version('1.0.0')
+	.parse(process.argv);
