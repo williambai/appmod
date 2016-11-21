@@ -1,26 +1,20 @@
+'use strict';
+
 var express = require('express');
+var bodyParser = require('body-parser');
 
-var app = express();
+var serve = express();
 
-port = (process && process.argv && process.argv.port) || 3500;
-//** RESTful
-var project = require('./restful/project');
-var docker = require('./restful/docker');
-//** initialize RESTful
-project.init();
-docker.init();
+var port = (process && process.argv && process.argv.port) || 3500;
 
-//** router
-app.get('/projects', project.get);
-app.post('/projects', project.post);
-app.put('/projects/:id', project.put);
-app.delete('/projects/:id', project.delete);
+//** api router
+require('./restful')(serve);
 
-app.get('/dockers',docker.get);
-app.post('/dockers',docker.post);
-app.put('/dockers/:id', docker.put);
-app.delete('/dockers/:id', docker.delete);
+//** apps router
+require('../apps/admin')(serve);
+require('../apps/default')(serve);
+require('../apps/common')(serve);
 
-app.listen(port,function(){
+serve.listen(port,function(){
 	console.log('serve deamon is running on port ' + port);
 });

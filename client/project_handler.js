@@ -42,16 +42,14 @@ Handler.prototype.list = function(input,done){
 		url: this.url + '/projects',
 	},function(err,response,body){
 		if(err) return done(err);
-		var projects = [];
 		try{
-			projects = JSON.parse(body);
+			body = JSON.parse(body);
 		}catch(e){
-			projects = [];
 		}
+		var projects = body.repos || [];
 		var projectsFiltered = [];
 		_.each(projects,function(project){
-			var projectFiltered = _.omit(project);
-			projectFiltered.sid = [].slice.call(projectFiltered.Id, 0, 12).join('');
+			var projectFiltered = _.pick(project,'name');
 			projectsFiltered.push(projectFiltered);
 		});
 		done(null,projectsFiltered);

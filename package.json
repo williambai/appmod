@@ -23,9 +23,13 @@
   },
   "homepage": "https://github.com/williambai/appmod#readme",
   "dependencies": {
+    "body-parser": "^1.15.2",
     "commander": "^2.9.0",
     "dockerode": "^2.3.1",
     "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "nodegit": "^0.16.0",
+    "nodejs-gitolite": "0.0.3",
     "pm2": "^2.1.5",
     "request": "^2.78.0",
     "underscore": "^1.8.3"

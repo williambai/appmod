@@ -1,1 +1,9 @@
-FROM ubuntu:14.04
+FROM ubuntu
+
+USER root
+
+RUN apt-get update
+
+RUN apt-get install git
+
+RUN apt-get install gitolite

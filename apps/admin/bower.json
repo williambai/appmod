@@ -1,0 +1,21 @@
+{
+  "name": "admin",
+  "description": "admin app",
+  "main": "index.js",
+  "authors": [
+    "William Bai"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "moduleType": [
+    "globals"
+  ],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

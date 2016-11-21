@@ -20,7 +20,6 @@ exports = module.exports = {
 	},
 
 	post: function(req,res){
-		console.log(req)
 		var query = req.query || {};
 		var body = req.body || {};
 		body = _.extend(body,query);

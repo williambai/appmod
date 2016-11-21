@@ -20,11 +20,10 @@ exports = module.exports = {
 	},
 
 	post: function(req,res){
-		console.log(req)
 		var query = req.query || {};
 		var body = req.body || {};
 		body = _.extend(body,query);
-		var action = body.action || 'none';
+		var action = body.action || 'add';
 		var projectHandler = new (require('../../handles/project_handler'))();
 		if(action == 'add'){
 			projectHandler.add(body, function(err,result){
