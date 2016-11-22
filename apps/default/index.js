@@ -1,6 +1,10 @@
-exports = module.exports = function(site){
+exports = module.exports = function(serve){
 
-	site.get('/', function(req,res){
+	//** service
+	require('./service')(serve,'');
+
+	//** page router
+	serve.get('/', function(req,res){
 		res.send('hello world.');
 	});
 

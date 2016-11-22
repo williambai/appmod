@@ -13,8 +13,13 @@ exports = module.exports = function(serve){
 	serve.set('views',__dirname + '/views/pages');
 	serve.set('view engine', 'handlebars');
 
+	//** service
+	require('./service')(serve,'/admin');
+
+	//** asset router
 	serve.use('/admin/',express.static(__dirname + '/asset'));
 
+	//** page router
 	serve.get('/admin/', function(req,res){
 		res.redirect('/admin/home');
 	});

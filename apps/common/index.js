@@ -1,16 +1,17 @@
 'use strict';
 
-exports = module.exports = function(site){
+exports = module.exports = function(serve){
 
-	site.get('/login', function(req,res){
+	//** page router
+	serve.get('/login', function(req,res){
 		res.send('login page');
 	});
 
-	site.get('/register', function(req,res){
+	serve.get('/register', function(req,res){
 		res.send('register page');
 	});
 
-	site.use(function(req,res){
+	serve.use(function(req,res){
 		res.send('404 not found.');
 		// res.redirect('/');
 	});

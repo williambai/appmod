@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 
 var serve = express();
 
-var port = (process && process.argv && process.argv.port) || 3500;
+var port = (process && process.argv && process.argv[2]) || 3500;
 
 //** api router
 require('./restful')(serve);
